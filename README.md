@@ -77,7 +77,8 @@ A semantic hint (e.g. "lid") is necessary for face-like contacts.
 
 Gaussian-splat reconstruction of RH20T workspaces from the dataset's calibrated cameras (no pose estimation), object mass from
 the wrist F/T segmented by gripper width, and the `r2s_pipeline` Newton–Euler fit on teleoperated episodes (which have no
-static plateau). Reconstruction outputs are kept locally.
+static plateau). Figures, the object mesh and the fused point cloud are in
+[`results/rh20t_splat/`](results/rh20t_splat/) (derived from RH20T scene 0001, **CC BY-SA 4.0**); the splat models are kept locally.
 
 ## The deliverable: `r2s_pipeline/`
 
