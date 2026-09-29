@@ -1,0 +1,31 @@
+{
+  "note": "GT for the printed part: multiply unit_density_inertia_per_kg by the WEIGHED mass. CAD geometry is exact; printer density is not.",
+  "cad_volume_cm3": 299.9999910593033,
+  "cad_extents_mm": [
+    159.9999964237213,
+    39.99999910593033,
+    94.9999988079071
+  ],
+  "com_from_cad_m": [
+    0.05433333255350589,
+    0.019999999552965164,
+    0.03466666657477617
+  ],
+  "unit_density_inertia_per_kg": [
+    [
+      0.0009132221944779156,
+      -0.0,
+      0.0006502221885191072
+    ],
+    [
+      -0.0,
+      0.0027677776488744562,
+      -0.0
+    ],
+    [
+      0.0006502221885191072,
+      -0.0,
+      0.0021212221091422784
+    ]
+  ]
+}

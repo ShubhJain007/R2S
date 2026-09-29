@@ -1,0 +1,13 @@
+diff --git a/main_stage_2.py b/main_stage_2.py
+index 47fd08a..1f48e9f 100644
+--- a/main_stage_2.py
++++ b/main_stage_2.py
+@@ -17,7 +17,7 @@ from klampt.math import so3
+ 
+ from diffworld.data import DataloaderStage2
+ from diffworld.world import SaPWorld
+-from diffworld.utils import convert_camera, convert_camera_pytorch3D,  l1_loss, mse, ssim,PartialChamferLoss,convert_camera_pytorch3D_from_camM
++from diffworld.utils import convert_camera_pytorch3D,  l1_loss, mse, ssim,PartialChamferLoss,convert_camera_pytorch3D_from_camM
+ 
+ def set_seed(s):
+     np.random.seed(s)

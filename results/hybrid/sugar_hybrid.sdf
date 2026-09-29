@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sdf xmlns:drake="drake.mit.edu" version="1.7">
+  <model name="sugar">
+    <link name="sugar_body_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.498607168</mass>
+        <pose>0.00859 -0.01129 -0.02053 0 0 0</pose>
+        <inertia>
+          <ixx>1.54860e-03</ixx>
+          <ixy>9.07308e-07</ixy>
+          <ixz>1.02895e-05</ixz>
+          <iyy>1.23919e-03</iyy>
+          <iyz>-2.17813e-05</iyz>
+          <izz>5.11763e-04</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>bundle_sdf_mesh/textured_mesh.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_000">
+        <geometry>
+          <mesh>
+            <uri>sugar_bundle_sdf_parts/convex_piece_000.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_001">
+        <geometry>
+          <mesh>
+            <uri>sugar_bundle_sdf_parts/convex_piece_001.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_002">
+        <geometry>
+          <mesh>
+            <uri>sugar_bundle_sdf_parts/convex_piece_002.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_003">
+        <geometry>
+          <mesh>
+            <uri>sugar_bundle_sdf_parts/convex_piece_003.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

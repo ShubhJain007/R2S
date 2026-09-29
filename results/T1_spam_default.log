@@ -1,0 +1,26 @@
+INFO:drake:PackageMap: Downloading https://github.com/RobotLocomotion/models/archive/deee02d4d79937e112cb428e638e7ee44d51305f.tar.gz
+INFO:root:Mean gripper position: 0.05157713060302733. Using gripper position 0.05.
+WARNING:root:Dynamic dry friction not implemented yet in Drake. Skipping.
+WARNING:root:Dynamic dry friction not implemented yet in Drake. Skipping.
+WARNING:root:Dynamic dry friction not implemented yet in Drake. Skipping.
+WARNING:root:Dynamic dry friction not implemented yet in Drake. Skipping.
+WARNING:root:Dynamic dry friction not implemented yet in Drake. Skipping.
+WARNING:root:Dynamic dry friction not implemented yet in Drake. Skipping.
+WARNING:root:Dynamic dry friction not implemented yet in Drake. Skipping.
+INFO:root:Sample period: 0.001000000000000334 seconds.
+Extracting data matrix:   0%|          | 0/10000 [00:00<?, ?it/s]Extracting data matrix:  12%|█▏        | 1209/10000 [00:00<00:00, 12083.59it/s]Extracting data matrix:  25%|██▍       | 2453/10000 [00:00<00:00, 12289.33it/s]Extracting data matrix:  37%|███▋      | 3708/10000 [00:00<00:00, 12404.07it/s]Extracting data matrix:  50%|████▉     | 4960/10000 [00:00<00:00, 12447.24it/s]Extracting data matrix:  62%|██████▏   | 6211/10000 [00:00<00:00, 12468.93it/s]Extracting data matrix:  75%|███████▍  | 7463/10000 [00:00<00:00, 12484.86it/s]Extracting data matrix:  87%|████████▋ | 8721/10000 [00:00<00:00, 12513.22it/s]Extracting data matrix: 100%|█████████▉| 9976/10000 [00:00<00:00, 12524.40it/s]Extracting data matrix: 100%|██████████| 10000/10000 [00:00<00:00, 12462.51it/s]
+INFO:root:Condition number: 5.080075239997635
+INFO:root:Starting to solve SDP...
+INFO:root:SDP cost: 1.2071770510076476
+INFO:root:SDP result:
+{np.str_('m6(0)'): np.float64(4.526832985420942), np.str_('hx6(0)'): np.float64(-0.0028728217912060605), np.str_('hy6(0)'): np.float64(-0.003998482418755613), np.str_('hz6(0)'): np.float64(0.22337382979012627), np.str_('Ixx6(0)'): np.float64(0.04621502152208757), np.str_('Ixy6(0)'): np.float64(0.00021064949886521556), np.str_('Ixz6(0)'): np.float64(-0.004409123775398695), np.str_('Iyy6(0)'): np.float64(0.04733953180804192), np.str_('Iyz6(0)'): np.float64(0.00202035211095865), np.str_('Izz6(0)'): np.float64(0.0018015409071473769)}
+INFO:root:Difference in the last link's parameters (payload parameters). Note that these are in identified object frame:
+INFO:root:Payload mass: 0.37797247632297015
+INFO:root:Payload CoM: [ 0.00877642 -0.00635353  0.03006855]
+INFO:root:Payload inertia (about CoM):
+[[ 0.02428817  0.00021984  0.00220238]
+ [ 0.00021984  0.02425024 -0.00240042]
+ [ 0.00220238 -0.00240042  0.00044337]]
+
+INFO:root:Saved inertial parameters to /home/kneepolean/shubhj/R2S/s2s-data/scalable_real2sim_benchmark_dataset/object_data/spam/inertial_params.json
+INFO:root:Saving parameters to /home/kneepolean/shubhj/R2S/results/T1_spam_default.json

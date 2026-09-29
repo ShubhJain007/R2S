@@ -1,0 +1,47 @@
+=== GPU precheck ===
+GPU: NVIDIA GeForce RTX 4070 Ti SUPER | torch 2.1.0+cu121
+
+=== STAGE 1: geometry + appearance (30 epochs) ===
+pygame 2.6.1 (SDL 2.28.4, Python 3.9.25)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+[KeOps] Compiling cuda jit compiler engine ... OK
+[pyKeOps] Compiling nvrtc binder for python ... OK
+/home/kneepolean/miniconda3/envs/rigidworldmodel/lib/python3.9/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3526.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Color grid initialization:   0%|          | 0/100 [00:00<?, ?it/s]/home/kneepolean/miniconda3/envs/rigidworldmodel/lib/python3.9/site-packages/torch/nn/modules/loss.py:535: UserWarning: Using a target size (torch.Size([3725, 3])) that is different to the input size (torch.Size([1, 3725, 3])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.mse_loss(input, target, reduction=self.reduction)
+Color grid initialization: 100%|██████████| 100/100 [00:00<00:00, 1401.97it/s]
+Training progress:   0%|          | 0/30 [00:00<?, ?it/s]/home/kneepolean/miniconda3/envs/rigidworldmodel/lib/python3.9/site-packages/torch/_tensor.py:738: UserWarning: torch.lu is deprecated in favor of torch.linalg.lu_factor / torch.linalg.lu_factor_ex and will be removed in a future PyTorch release.
+LU, pivots = torch.lu(A, compute_pivots)
+should be replaced with
+LU, pivots = torch.linalg.lu_factor(A, compute_pivots)
+and
+LU, pivots, info = torch.lu(A, compute_pivots, get_infos=True)
+should be replaced with
+LU, pivots, info = torch.linalg.lu_factor_ex(A, compute_pivots) (Triggered internally at ../aten/src/ATen/native/BatchLinearAlgebra.cpp:1992.)
+  LU, pivots, infos = torch._lu_with_info(
+/home/kneepolean/shubhj/R2S/RigidWorldModel/diffworld/diffsdfsim/lcp_physics/lcp/solvers/batch.py:435: UserWarning: torch.lu_solve is deprecated in favor of torch.linalg.lu_solveand will be removed in a future PyTorch release.
+Note that torch.linalg.lu_solve has its arguments reversed.
+X = torch.lu_solve(B, LU, pivots)
+should be replaced with
+X = torch.linalg.lu_solve(LU, pivots, B) (Triggered internally at ../aten/src/ATen/native/BatchLinearAlgebra.cpp:2149.)
+  G_invQ_GT = torch.bmm(G, G.transpose(1, 2).lu_solve(*Q_LU)) + F
+/home/kneepolean/miniconda3/envs/rigidworldmodel/lib/python3.9/site-packages/pytorch3d/ops/laplacian_matrices.py:49: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:605.)
+  A = torch.sparse.FloatTensor(idx, ones, (V, V))
+Training progress:   0%|          | 0/30 [00:03<?, ?it/s, Loss=21.1655159]Training progress:   3%|▎         | 1/30 [00:03<01:51,  3.84s/it, Loss=21.1655159]Training progress:   3%|▎         | 1/30 [00:07<01:51,  3.84s/it, Loss=18.0455704]Training progress:   7%|▋         | 2/30 [00:07<01:52,  4.02s/it, Loss=18.0455704]Training progress:   7%|▋         | 2/30 [00:12<01:52,  4.02s/it, Loss=15.1855526]Training progress:  10%|█         | 3/30 [00:12<01:48,  4.03s/it, Loss=15.1855526]Training progress:  10%|█         | 3/30 [00:16<01:48,  4.03s/it, Loss=13.9985886]Training progress:  13%|█▎        | 4/30 [00:16<01:46,  4.10s/it, Loss=13.9985886]Training progress:  13%|█▎        | 4/30 [00:20<01:46,  4.10s/it, Loss=12.8084383]Training progress:  17%|█▋        | 5/30 [00:20<01:41,  4.07s/it, Loss=12.8084383]Training progress:  17%|█▋        | 5/30 [00:24<01:41,  4.07s/it, Loss=12.0545540]Training progress:  20%|██        | 6/30 [00:24<01:37,  4.07s/it, Loss=12.0545540]Training progress:  20%|██        | 6/30 [00:28<01:37,  4.07s/it, Loss=11.5756502]Training progress:  23%|██▎       | 7/30 [00:28<01:33,  4.08s/it, Loss=11.5756502]Training progress:  23%|██▎       | 7/30 [00:32<01:33,  4.08s/it, Loss=11.6101093]Training progress:  27%|██▋       | 8/30 [00:32<01:28,  4.04s/it, Loss=11.6101093]Training progress:  27%|██▋       | 8/30 [00:36<01:28,  4.04s/it, Loss=10.8571033]Training progress:  30%|███       | 9/30 [00:36<01:24,  4.03s/it, Loss=10.8571033]Training progress:  30%|███       | 9/30 [00:40<01:24,  4.03s/it, Loss=11.5659876]Training progress:  33%|███▎      | 10/30 [00:40<01:19,  3.98s/it, Loss=11.5659876]Training progress:  33%|███▎      | 10/30 [00:44<01:19,  3.98s/it, Loss=9.8587675] Training progress:  37%|███▋      | 11/30 [00:44<01:15,  3.98s/it, Loss=9.8587675]Training progress:  37%|███▋      | 11/30 [00:48<01:15,  3.98s/it, Loss=11.1229095]Training progress:  40%|████      | 12/30 [00:48<01:11,  3.95s/it, Loss=11.1229095]Training progress:  40%|████      | 12/30 [00:52<01:11,  3.95s/it, Loss=9.5936356] Training progress:  43%|████▎     | 13/30 [00:52<01:06,  3.94s/it, Loss=9.5936356]Training progress:  43%|████▎     | 13/30 [00:55<01:06,  3.94s/it, Loss=11.1251087]Training progress:  47%|████▋     | 14/30 [00:55<01:02,  3.90s/it, Loss=11.1251087]Training progress:  47%|████▋     | 14/30 [00:59<01:02,  3.90s/it, Loss=9.4266195] Training progress:  50%|█████     | 15/30 [00:59<00:58,  3.89s/it, Loss=9.4266195]Training progress:  50%|█████     | 15/30 [01:03<00:58,  3.89s/it, Loss=10.1640749]Training progress:  53%|█████▎    | 16/30 [01:03<00:54,  3.86s/it, Loss=10.1640749]Training progress:  53%|█████▎    | 16/30 [01:07<00:54,  3.86s/it, Loss=9.1927509] Training progress:  57%|█████▋    | 17/30 [01:07<00:50,  3.86s/it, Loss=9.1927509]Training progress:  57%|█████▋    | 17/30 [01:11<00:50,  3.86s/it, Loss=10.0276871]Training progress:  60%|██████    | 18/30 [01:11<00:46,  3.85s/it, Loss=10.0276871]Training progress:  60%|██████    | 18/30 [01:15<00:46,  3.85s/it, Loss=9.1506958] Training progress:  63%|██████▎   | 19/30 [01:15<00:42,  3.84s/it, Loss=9.1506958]Training progress:  63%|██████▎   | 19/30 [01:18<00:42,  3.84s/it, Loss=10.0132675]Training progress:  67%|██████▋   | 20/30 [01:18<00:38,  3.81s/it, Loss=10.0132675]Training progress:  67%|██████▋   | 20/30 [01:22<00:38,  3.81s/it, Loss=8.7687340] Training progress:  70%|███████   | 21/30 [01:22<00:34,  3.83s/it, Loss=8.7687340]Training progress:  70%|███████   | 21/30 [01:26<00:34,  3.83s/it, Loss=9.5269585]Training progress:  73%|███████▎  | 22/30 [01:26<00:30,  3.80s/it, Loss=9.5269585]Training progress:  73%|███████▎  | 22/30 [01:30<00:30,  3.80s/it, Loss=8.7775021]Training progress:  77%|███████▋  | 23/30 [01:30<00:26,  3.78s/it, Loss=8.7775021]Training progress:  77%|███████▋  | 23/30 [01:33<00:26,  3.78s/it, Loss=9.4579039]Training progress:  80%|████████  | 24/30 [01:33<00:22,  3.78s/it, Loss=9.4579039]Training progress:  80%|████████  | 24/30 [01:37<00:22,  3.78s/it, Loss=8.6703215]Training progress:  83%|████████▎ | 25/30 [01:37<00:18,  3.77s/it, Loss=8.6703215]Training progress:  83%|████████▎ | 25/30 [01:41<00:18,  3.77s/it, Loss=8.8965874]Training progress:  87%|████████▋ | 26/30 [01:41<00:14,  3.75s/it, Loss=8.8965874]Training progress:  87%|████████▋ | 26/30 [01:45<00:14,  3.75s/it, Loss=8.5701084]Training progress:  90%|█████████ | 27/30 [01:45<00:11,  3.76s/it, Loss=8.5701084]Training progress:  90%|█████████ | 27/30 [01:48<00:11,  3.76s/it, Loss=8.7754917]Training progress:  93%|█████████▎| 28/30 [01:48<00:07,  3.73s/it, Loss=8.7754917]Training progress:  93%|█████████▎| 28/30 [01:52<00:07,  3.73s/it, Loss=8.4777021]Training progress:  97%|█████████▋| 29/30 [01:52<00:03,  3.74s/it, Loss=8.4777021]Training progress:  97%|█████████▋| 29/30 [01:56<00:03,  3.74s/it, Loss=8.7168827]Training progress: 100%|██████████| 30/30 [01:56<00:00,  3.75s/it, Loss=8.7168827]Training progress: 100%|██████████| 30/30 [01:56<00:00,  3.88s/it, Loss=8.7168827]
+
+real	2m13.525s
+user	10m41.874s
+sys	15m59.482s
+
+=== STAGE 2: physics identification - mass / friction / com (25 epochs) ===
+pygame 2.6.1 (SDL 2.28.4, Python 3.9.25)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+Traceback (most recent call last):
+  File "/home/kneepolean/shubhj/R2S/RigidWorldModel/main_stage_2.py", line 20, in <module>
+    from diffworld.utils import convert_camera, convert_camera_pytorch3D,  l1_loss, mse, ssim,PartialChamferLoss,convert_camera_pytorch3D_from_camM
+ImportError: cannot import name 'convert_camera' from 'diffworld.utils' (/home/kneepolean/shubhj/R2S/RigidWorldModel/diffworld/utils/__init__.py)
+
+real	0m3.280s
+user	0m9.142s
+sys	0m3.389s

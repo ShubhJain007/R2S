@@ -1,0 +1,20 @@
+# Datasets (re-downloadable; see README "Data")
+rh20t_data/
+s2s-data/
+data/
+*.tar.gz
+# Third-party clones (see third_party/UPSTREAM.md for URLs, commits and our patches)
+RigidWorldModel/
+scalable-real2sim/
+rh20t_api/
+utias-inertial/
+# Generated reconstructions / training outputs stay local
+rh20t_splat/out_*/
+checkpoints/
+wandb/
+*.pt
+*.pth
+*.ckpt
+# caches
+__pycache__/
+*.pyc

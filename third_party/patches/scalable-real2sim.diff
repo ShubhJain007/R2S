@@ -1,0 +1,12 @@
+diff --git a/.gitmodules b/.gitmodules
+index dc55c54..9bb1b2c 100644
+--- a/.gitmodules
++++ b/.gitmodules
+@@ -1,6 +1,6 @@
+ [submodule "scalable_real2sim/robot_payload_id"]
+ 	path = scalable_real2sim/robot_payload_id
+-	url = git@github.com:nepfaff/robot_payload_id.git
++	url = https://github.com/nepfaff/robot_payload_id.git
+ [submodule "scalable_real2sim/neuralangelo"]
+ 	path = scalable_real2sim/neuralangelo
+ 	url = git@github.com:evelyn-fu/neuralangelo.git

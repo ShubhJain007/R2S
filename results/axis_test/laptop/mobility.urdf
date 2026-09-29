@@ -1,0 +1,9 @@
+<robot name="laptop">
+  <link name="parent"><visual><geometry><mesh filename="parent.obj"/></geometry></visual></link>
+  <link name="child"><visual><geometry><mesh filename="child.obj"/></geometry></visual></link>
+  <joint name="j" type="revolute">
+    <parent link="parent"/><child link="child"/>
+    <origin xyz="0.000000 -0.110000 0.023000" rpy="0 0 0"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+  </joint>
+</robot>

@@ -1,0 +1,37 @@
+
+==============================================================================
+ OBJECT: spam
+==============================================================================
+data: 10000 samples over 10.00s | train 7999 / holdout 2001 samples | gripper 0.05 | W built in 1s | cond(W_full)=5.08
+
+[T1] full-data fit vs shipped:  mass 0.377972 vs 0.377973 (0.00%)  | I Frobenius diff 4.5%
+
+[T5] fit first 8s -> predict last 2s | rel torque RMSE = 0.3921  (per joint: 0.148 0.073 0.046 0.150 0.172 1.009 1.146)
+     params from train split: mass 0.36360  com [-0.0039 -0.0227  0.0457]  diag=(0.04110,0.03957,0.00550) off=(-0.00006,+0.00624,-0.00385)
+
+[T4] bounding ellipsoid constraint:
+                     mass   held-out rel RMSE   inertia (object frame, about CoM)
+     OFF          0.36360              0.3921   diag=(0.04110,0.03957,0.00550) off=(-0.00006,+0.00624,-0.00385)
+     ON           0.36360              0.3920   diag=(0.04111,0.03956,0.00549) off=(-0.00007,+0.00623,-0.00385)
+     inertia change ON vs OFF: Frobenius 0.0%
+
+[T3] inertia source -> held-out torque prediction (mass/CoM/friction identical, only inertia differs):
+     torque-identified (SDP):     rel RMSE 0.3921   diag=(0.04110,0.03957,0.00550) off=(-0.00006,+0.00624,-0.00385)
+     geometry (uniform density):  rel RMSE 0.3793   diag=(0.00047,0.00034,0.00030) off=(-0.00001,+0.00000,-0.00000)
+     Frobenius diff between the two inertias: 99.0%
+
+[T2] excitation degradation (fit on subsets of the train window; always predict the same held-out 2s)
+     subset                                 n   cond(W)     mass  |dm|%  holdout RMSE I Frob dev%
+     full train window                   7999       5.4   0.3636    0.0        0.3921         0.0
+     first 0.5s only                      500     423.8   0.2058   43.4        1.9660       776.7
+     first 1s only                       1000      46.6   0.2856   21.5        0.7604        73.7
+     first 2s only                       2000       8.5   0.3385    6.9        0.5869        78.6
+     first 4s only                       4000       4.7   0.3807    4.7        0.4268        55.8
+     gentlest 50% of samples (|qdd|<7)   4000       5.2   0.3509    3.5        0.4216        56.2
+     gentlest 25% of samples (|qdd|<5)   2000       6.7   0.2685   26.2        0.4903        80.9
+     gentlest 10% of samples (|qdd|<4)    800      20.1   0.2363   35.0        0.6660       173.9
+     gentlest 5% of samples (|qdd|<3)     400     682.7   0.2086   42.6        2.8138       650.4
+     most excited 50% (|qdd|>7)          4000       6.3   0.3713    2.1        0.4534        45.2
+     most excited 25% (|qdd|>8)          2000       6.0   0.3724    2.4        0.4650        45.4
+
+saved -> /home/kneepolean/shubhj/R2S/results/s2s_tests.json

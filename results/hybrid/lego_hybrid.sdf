@@ -1,0 +1,931 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sdf xmlns:drake="drake.mit.edu" version="1.7">
+  <model name="lego">
+    <link name="lego_body_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.1691706718</mass>
+        <pose>-0.01704 -0.07239 -0.02536 0 0 0</pose>
+        <inertia>
+          <ixx>8.05880e-04</ixx>
+          <ixy>-5.27145e-06</ixy>
+          <ixz>1.58590e-06</ixz>
+          <iyy>7.28742e-04</iyy>
+          <iyz>2.83635e-05</iyz>
+          <izz>2.97536e-04</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>bundle_sdf_mesh/textured_mesh.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_000">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_000.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_001">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_001.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_002">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_002.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_003">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_003.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_004">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_004.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_005">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_005.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_006">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_006.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_007">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_007.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_008">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_008.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_009">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_009.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_010">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_010.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_011">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_011.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_012">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_012.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_013">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_013.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_014">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_014.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_015">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_015.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_016">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_016.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_017">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_017.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_018">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_018.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_019">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_019.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_020">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_020.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_021">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_021.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_022">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_022.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_023">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_023.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_024">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_024.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_025">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_025.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_026">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_026.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_027">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_027.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_028">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_028.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_029">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_029.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_030">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_030.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_031">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_031.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_032">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_032.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_033">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_033.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_034">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_034.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_035">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_035.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_036">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_036.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_037">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_037.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_038">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_038.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_039">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_039.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_040">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_040.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_041">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_041.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_042">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_042.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_043">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_043.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_044">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_044.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_045">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_045.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_046">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_046.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_047">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_047.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_048">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_048.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_049">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_049.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_050">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_050.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_051">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_051.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_052">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_052.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_053">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_053.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_054">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_054.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_055">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_055.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_056">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_056.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_057">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_057.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_058">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_058.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_059">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_059.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_060">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_060.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_061">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_061.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_062">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_062.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_063">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_063.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_064">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_064.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_065">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_065.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_066">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_066.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_067">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_067.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_068">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_068.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_069">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_069.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_070">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_070.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_071">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_071.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_072">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_072.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_073">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_073.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_074">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_074.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_075">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_075.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_076">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_076.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_077">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_077.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_078">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_078.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_079">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_079.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_080">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_080.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_081">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_081.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_082">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_082.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_083">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_083.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_084">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_084.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_085">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_085.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_086">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_086.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_087">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_087.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_088">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_088.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_089">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_089.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_090">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_090.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_091">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_091.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_092">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_092.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_093">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_093.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_094">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_094.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_095">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_095.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_096">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_096.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_097">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_097.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_098">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_098.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_099">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_099.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_100">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_100.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_101">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_101.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_102">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_102.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_103">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_103.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_104">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_104.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_105">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_105.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_106">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_106.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_107">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_107.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_108">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_108.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_109">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_109.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_110">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_110.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_111">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_111.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="collision_112">
+        <geometry>
+          <mesh>
+            <uri>lego_bundle_sdf_parts/convex_piece_112.obj</uri>
+            <drake:declare_convex/>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

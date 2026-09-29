@@ -1,0 +1,107 @@
+
+==============================================================================
+ OBJECT: spam
+==============================================================================
+data: 10000 samples over 10.00s | train 7999 / holdout 2001 samples | gripper 0.05 | W built in 1s | cond(W_full)=5.08
+
+[T1] full-data fit vs shipped:  mass 0.377972 vs 0.377973 (0.00%)  | I Frobenius diff 1.3%
+
+[T5] fit first 8s -> predict last 2s | rel torque RMSE = 0.3921  (per joint: 0.148 0.073 0.046 0.150 0.172 1.009 1.146)
+     params from train split: mass 0.36360  com [-0.0032 -0.0228  0.0459]  diag=(0.04146,0.03964,0.00508) off=(-0.00026,+0.00502,-0.00366)
+
+[T4] bounding ellipsoid constraint:
+                     mass   held-out rel RMSE   inertia (object frame, about CoM)
+     OFF          0.36360              0.3921   diag=(0.04146,0.03964,0.00508) off=(-0.00026,+0.00502,-0.00366)
+     ON           0.36360              0.3920   diag=(0.04147,0.03963,0.00507) off=(-0.00026,+0.00501,-0.00366)
+     inertia change ON vs OFF: Frobenius 0.0%
+
+[T3] inertia source -> held-out torque prediction (mass/CoM/friction identical, only inertia differs):
+     torque-identified (SDP):     rel RMSE 0.3921   diag=(0.04146,0.03964,0.00508) off=(-0.00026,+0.00502,-0.00366)
+     geometry (uniform density):  rel RMSE 0.3793   diag=(0.00047,0.00034,0.00030) off=(-0.00001,+0.00000,-0.00000)
+     Frobenius diff between the two inertias: 99.0%
+
+[T2] excitation degradation (fit on subsets of the train window; always predict the same held-out 2s)
+     subset                                 n   cond(W)     mass  |dm|%  holdout RMSE I Frob dev%
+     full train window                   7999       5.4   0.3636    0.0        0.3921         0.0
+     first 0.5s only                      500     423.8   0.2058   43.4        1.9660       776.7
+     first 1s only                       1000      46.6   0.2856   21.5        0.7604        73.7
+     first 2s only                       2000       8.5   0.3385    6.9        0.5869        78.6
+     first 4s only                       4000       4.7   0.3807    4.7        0.4268        55.8
+     gentlest 50% of samples (|qdd|<7)   4000       5.2   0.3509    3.5        0.4216        56.2
+     gentlest 25% of samples (|qdd|<5)   2000       6.7   0.2685   26.2        0.4903        80.9
+     gentlest 10% of samples (|qdd|<4)    800      20.1   0.2363   35.0        0.6660       173.9
+     gentlest 5% of samples (|qdd|<3)     400     682.7   0.2086   42.6        2.8138       650.4
+     most excited 50% (|qdd|>7)          4000       6.3   0.3713    2.1        0.4534        45.2
+     most excited 25% (|qdd|>8)          2000       6.0   0.3724    2.4        0.4650        45.4
+
+==============================================================================
+ OBJECT: sugar
+==============================================================================
+data: 10000 samples over 10.00s | train 7999 / holdout 2001 samples | gripper 0.03 | W built in 1s | cond(W_full)=5.06
+
+[T1] full-data fit vs shipped:  mass 0.498607 vs 0.498607 (0.00%)  | I Frobenius diff 14.8%
+
+[T5] fit first 8s -> predict last 2s | rel torque RMSE = 0.3650  (per joint: 0.124 0.068 0.039 0.142 0.147 0.896 1.139)
+     params from train split: mass 0.48440  com [ 0.003  0.001 -0.028]  diag=(0.04202,0.04092,0.00528) off=(-0.00057,-0.00424,-0.00704)
+
+[T4] bounding ellipsoid constraint:
+                     mass   held-out rel RMSE   inertia (object frame, about CoM)
+     OFF          0.48440              0.3650   diag=(0.04202,0.04092,0.00528) off=(-0.00057,-0.00424,-0.00704)
+     ON           0.48440              0.3650   diag=(0.04202,0.04092,0.00528) off=(-0.00057,-0.00424,-0.00704)
+     inertia change ON vs OFF: Frobenius 0.0%
+
+[T3] inertia source -> held-out torque prediction (mass/CoM/friction identical, only inertia differs):
+     torque-identified (SDP):     rel RMSE 0.3650   diag=(0.04202,0.04092,0.00528) off=(-0.00057,-0.00424,-0.00704)
+     geometry (uniform density):  rel RMSE 0.3521   diag=(0.00146,0.00116,0.00047) off=(+0.00000,+0.00001,-0.00002)
+     Frobenius diff between the two inertias: 96.9%
+
+[T2] excitation degradation (fit on subsets of the train window; always predict the same held-out 2s)
+     subset                                 n   cond(W)     mass  |dm|%  holdout RMSE I Frob dev%
+     full train window                   7999       5.3   0.4844    0.0        0.3650         0.0
+     first 0.5s only                      500     379.2   0.3244   33.0        2.2019      1010.9
+     first 1s only                       1000      45.7   0.4010   17.2        0.7568        97.0
+     first 2s only                       2000       8.5   0.4631    4.4        0.6032        78.3
+     first 4s only                       4000       4.7   0.5048    4.2        0.3858        51.3
+     gentlest 50% of samples (|qdd|<7)   4000       5.2   0.4713    2.7        0.3939        64.3
+     gentlest 25% of samples (|qdd|<5)   2000       6.7   0.3872   20.1        0.4935        89.0
+     gentlest 10% of samples (|qdd|<4)    800      26.6   0.3514   27.5        0.6830       209.3
+     gentlest 5% of samples (|qdd|<3)     400     475.2   0.3291   32.1        3.0268       860.0
+     most excited 50% (|qdd|>7)          4000       6.3   0.4934    1.9        0.4420        54.4
+     most excited 25% (|qdd|>8)          2000       6.1   0.4932    1.8        0.4559        52.6
+
+==============================================================================
+ OBJECT: lego
+==============================================================================
+data: 10000 samples over 10.00s | train 7999 / holdout 2001 samples | gripper 0.08 | W built in 1s | cond(W_full)=5.11
+
+[T1] full-data fit vs shipped:  mass 0.169171 vs 0.169171 (0.00%)  | I Frobenius diff 7.8%
+
+[T5] fit first 8s -> predict last 2s | rel torque RMSE = 0.4263  (per joint: 0.151 0.079 0.049 0.154 0.181 1.167 1.203)
+     params from train split: mass 0.15404  com [-0.0014 -0.1185 -0.0288]  diag=(0.04011,0.00458,0.04222) off=(-0.00463,-0.00023,+0.00214)
+
+[T4] bounding ellipsoid constraint:
+                     mass   held-out rel RMSE   inertia (object frame, about CoM)
+     OFF          0.15404              0.4263   diag=(0.04011,0.00458,0.04222) off=(-0.00463,-0.00023,+0.00214)
+     ON           0.15404              0.4263   diag=(0.04011,0.00458,0.04222) off=(-0.00463,-0.00023,+0.00214)
+     inertia change ON vs OFF: Frobenius 0.0%
+
+[T3] inertia source -> held-out torque prediction (mass/CoM/friction identical, only inertia differs):
+     torque-identified (SDP):     rel RMSE 0.4263   diag=(0.04011,0.00458,0.04222) off=(-0.00463,-0.00023,+0.00214)
+     geometry (uniform density):  rel RMSE 0.4148   diag=(0.00074,0.00066,0.00027) off=(-0.00000,-0.00000,+0.00003)
+     Frobenius diff between the two inertias: 98.7%
+
+[T2] excitation degradation (fit on subsets of the train window; always predict the same held-out 2s)
+     subset                                 n   cond(W)     mass  |dm|%  holdout RMSE I Frob dev%
+     full train window                   7999       5.4   0.1540    0.0        0.4263         0.0
+     first 0.5s only                      500     393.5   0.1380   10.4        1.9197       592.2
+     first 1s only                       1000      46.5   0.1420    7.8        0.7712        85.5
+     first 2s only                       2000       8.5   0.1324   14.0        0.6010        78.5
+     first 4s only                       4000       4.7   0.1742   13.1        0.4644        54.0
+     gentlest 50% of samples (|qdd|<7)   4000       5.2   0.1483    3.7        0.4600        49.1
+     gentlest 25% of samples (|qdd|<5)   2000       6.7   0.0839   45.5        0.5674        87.4
+     gentlest 10% of samples (|qdd|<4)    800      25.1   0.0999   35.1        0.7084       185.7
+     gentlest 5% of samples (|qdd|<3)     400     909.6   0.1940   26.0        2.8627        89.5
+     most excited 50% (|qdd|>7)          4000       6.3   0.1590    3.2        0.4796        47.3
+     most excited 25% (|qdd|>8)          2000       6.1   0.1518    1.5        0.4908        40.2
+
+saved -> /home/kneepolean/shubhj/R2S/results/s2s_tests.json
