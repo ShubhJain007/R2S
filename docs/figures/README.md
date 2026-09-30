@@ -5,6 +5,8 @@ Every figure in the top-level README is generated, not drawn by hand, and comes 
 | Figure | Built by | From |
 |---|---|---|
 | `pipeline-*.svg` | `make_diagrams.py` | (layout in the script) |
+| `terminal_demo.svg` | `make_diagrams.py` | animated replay of the `identify` run shown in the README; command and output lines are verbatim |
+| `tools_demo.gif` | `tool_demo.py` | the pipeline's self-test on five tools (`tools/selftest.json`), rendered from the `utias-inertial` meshes |
 | `identifiability-*.svg` | `make_figures.py` | `results/utias_gentle_motion.json`, `results/utias_geometry_inertia.json` |
 | `signal_budget-*.svg` | `make_figures.py` | `results/utias_signal_budget.json` |
 | `oneshot_seed-*.svg` | `make_figures.py` | `results/oneshot_traces.json` |
@@ -23,6 +25,8 @@ python docs/figures/make_diagrams.py                          # no dependencies
 python docs/figures/make_figures.py                           # matplotlib + trimesh (conda env: s2s)
 python docs/figures/make_figures.py hybrid                    # only figures whose name contains "hybrid"
 PYOPENGL_PLATFORM=egl python docs/figures/render_tools.py     # pyrender (conda env: rigidworldmodel)
+python docs/figures/tool_demo.py estimate                     # runs the self-test, saves its numbers (conda env: s2s)
+PYOPENGL_PLATFORM=egl python docs/figures/tool_demo.py render # pyrender + ffmpeg (conda env: rigidworldmodel)
 ```
 
 The charts have transparent backgrounds and are referenced from the README through `<picture>` so that GitHub serves the
@@ -31,5 +35,5 @@ every figure (blue for "from motion", orange for "from geometry").
 
 ## Licences
 
-`tools/*.png` are renders of meshes from the utiasSTARS workshop-tools dataset
+`tools/*.png` and `tools_demo.gif` are renders of meshes from the utiasSTARS workshop-tools dataset
 ([inertial-identification-with-part-segmentation](https://github.com/utiasSTARS/inertial-identification-with-part-segmentation), MIT).

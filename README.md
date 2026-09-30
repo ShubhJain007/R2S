@@ -5,12 +5,23 @@
 **Turn joint torques (or a wrist force/torque sensor) and camera images into the mass, centre of mass,<br>
 inertia and friction of the objects a robot handled, each checked against ground truth.**
 
-[The finding](#the-finding-in-one-picture) · [Try it](#try-it) · [Evidence](#the-evidence) · [RH20T demo](#6-real-robot-episodes-rh20t) · [Repository map](#repository-map) · [Setup](#setup)
+[The finding](#the-finding-in-one-picture) · [How it works](#how-it-works) · [Try it](#try-it) · [Evidence](#the-evidence) · [RH20T demo](#6-real-robot-episodes-rh20t) · [Repository map](#repository-map) · [Setup](#setup)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/figures/pipeline-dark.svg">
-  <img alt="Pipeline: mass and centre of mass come from the force channel, inertia comes from geometry, friction from a press-and-slide motion. Inertia from motion is not used." src="docs/figures/pipeline-light.svg" width="860">
-</picture>
+<img alt="Five workshop tools rotating: hammer, pliers, screwdriver, vise grip and box wrench. Each shows its true centre of mass as a ring and the estimated one as a dot, with the mass error underneath: 0.08, 1.77, 0.06, 0.14 and 0.07 percent." src="docs/figures/tools_demo.gif" width="860">
+
+<sub><b>Weighing objects by holding them.</b> The pipeline's self-test on five tools with CAD ground truth: mass is within 2% on all five from gentle motion alone;<br>the centre of mass is within about 1 cm on three and about 5 cm off on two.</sub>
+
+<br>
+
+<img alt="Animated terminal: python -m r2s_pipeline identify on a 10 second joint-torque recording. The empty-gripper baseline of 2.5314 kg is subtracted from the loaded 2.8972 kg, giving an object mass of 0.3658 kg against a reference of 0.3780 kg." src="docs/figures/terminal_demo.svg" width="860">
+
+<sub><b>On a real robot, with no force sensor.</b> Ten seconds of KUKA iiwa joint torques and the nominal robot model give the mass of a can of Spam to 3.2%.<br>The recording is in this repository; the command and output are real.</sub>
+
+<br>
+
+<img alt="Animated novel-view sweep through a Gaussian splat of a robot workspace." src="results/rh20t_splat/demo/workspace_flythrough.gif" width="49%"> <img alt="Camera image of a KUKA arm grasping a wooden block, with the robot base, marker and tool frames drawn on it." src="results/rh20t_splat/out_ep/ep_104122064161_0094.png" width="49%">
+
+<sub><b>And the scene around it.</b> Left: a robot workspace rebuilt as a Gaussian splat from the dataset's own calibrated cameras, seen along a path no camera took.<br>Right: the same rig mid-grasp, with the base, marker and tool frames projected in to check every calibration convention. (RH20T, CC BY-SA 4.0)</sub>
 
 </div>
 
@@ -52,6 +63,17 @@ Gravity does the work. Holding an object loads the sensor with its full weight (
 speeds that term is about 3% of the torque signal and sits at the noise floor of an F/T sensor. No choice of solver recovers
 a quantity the measurement barely contains. ([`signal_budget.py`](experiments/ground_truth/signal_budget.py),
 [`results/utias_signal_budget.json`](results/utias_signal_budget.json))
+
+## How it works
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/figures/pipeline-dark.svg">
+  <img alt="Pipeline: mass and centre of mass come from the force channel, inertia comes from geometry, friction from a press-and-slide motion. Inertia from motion is not used." src="docs/figures/pipeline-light.svg" width="860">
+</picture>
+
+Record the robot holding the object (and once holding nothing), reconstruct the object's mesh from the cameras, and each
+parameter is estimated from the channel that carries it. The output drops straight into an SDF or URDF, with self-checks
+that flag a bad recording without needing ground truth.
 
 ## Try it
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Write the hand-laid-out diagrams: pipeline-{light,dark}.svg.
+"""Write the hand-laid-out diagrams: pipeline-{light,dark}.svg and the animated terminal_demo.svg.
 
 Plain SVG with live text (system UI font), one file per GitHub theme. No dependencies.
 
@@ -78,6 +78,63 @@ def pipeline(t):
             f'.c{{font-size:11px;font-weight:600;letter-spacing:.08em;fill:{t["muted"]}}}</style><defs>{heads}</defs>\n' + "\n".join(body) + "\n</svg>\n")
 
 
+# The terminal animation replays a real run: the command and every output line are verbatim (see the "Try it"
+# section of the README). Only the pill at the end is an annotation. SMIL, so it plays inside an <img> on GitHub;
+# without animation support the attributes fall back to the finished frame.
+TERMINAL = [
+    ("cmd", "$ python -m r2s_pipeline identify results/hybrid/spam_recording.npz --mode joint_torque \\"),
+    ("cmd", "      --robot scalable-real2sim/scalable_real2sim/robot_payload_id/models/iiwa.dmd.yaml --ee iiwa_link_7 \\"),
+    ("cmd", "      --baseline results/hybrid/baseline_gripper0.05.npz"),
+    ("out", "recording: 10000 samples, 10.0 s @ 1000 Hz, mode=joint_torque"),
+    ("out", "  joint-torque mode: arm dynamics from nominal model + per-joint friction/offset terms"),
+    ("out", "  baseline (no object): mass 2.5314 kg at [ 0.0392 -0.0215  0.0742]  ->  subtracted"),
+    ("key", "  loaded 2.8972 kg - baseline 2.5314 kg = |object 0.3658 kg"),
+    ("out", "  samples 10000 | excitation |a| max 6.08 m/s^2, median 2.36 | cond(full)=5.0 cond(mass,CoM)=3.3"),
+    ("out", "  held-out (30%) RMSE / signal RMS = 0.724   abs RMSE per joint [ 3.774 11.056  3.568  3.938  3.26   2.062  3.341] Nm"),
+    ("out", ""),
+    ("key", "RESULT  |mass 0.3658 kg| | CoM (sensor frame) [0.0027 0.0012 0.2447]"),
+]
+
+
+def terminal(dur=16.0, W=900, lh=19, x0=22, y0=62):
+    ink, sub, ok, bd, bg, bar = "#f0f6fc", "#9198a1", "#3fb950", "#30363d", "#0d1117", "#161b22"
+    esc = lambda v: v.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    H = y0 + lh * len(TERMINAL) + 8; end = 0.95
+    fade = lambda t0: (f'<animate attributeName="opacity" dur="{dur}s" repeatCount="indefinite" calcMode="discrete" '
+                       f'values="0;1;0" keyTimes="0;{t0 / dur:.4f};{end}"/>')
+    body, defs, t = [], [], 0.6
+    for i, (kind, text) in enumerate(TERMINAL):
+        y = y0 + lh * i
+        if kind == "cmd":                                   # typed: a clip rectangle grows across the line
+            t1 = t + max(0.9, len(text) * 0.022)
+            defs.append(f'<clipPath id="c{i}"><rect x="0" y="{y - 14}" width="{W}" height="{lh}"><animate attributeName="width" dur="{dur}s" repeatCount="indefinite" '
+                        f'values="0;0;{W};{W};0" keyTimes="0;{t / dur:.4f};{t1 / dur:.4f};{end};1"/></rect></clipPath>')
+            head = f'<tspan fill="{ok}">$</tspan>' + esc(text[1:]) if text.startswith("$") else esc(text)
+            body.append(f'<text x="{x0}" y="{y}" fill="{ink}" clip-path="url(#c{i})">{head}</text>'); t = t1 + 0.15
+        else:
+            t += 0.9 if i == 3 else (0.45 if text else 0.0)
+            if not text: continue
+            if kind == "key":
+                parts = text.split("|", 2) if text.count("|") > 1 else text.split("|")
+                a, b, c = (parts + [""])[:3]
+                inner = f'{esc(a)}<tspan fill="{ok}">{esc(b)}</tspan>{esc(c)}'
+                body.append(f'<text x="{x0}" y="{y}" fill="{ink}" font-weight="700">{inner}{fade(t)}</text>')
+            else:
+                body.append(f'<text x="{x0}" y="{y}" fill="{sub}">{esc(text)}{fade(t)}</text>')
+    y = y0 + lh * (len(TERMINAL) - 1)
+    body.append(f'<g font-family="{FONT}">{fade(t + 0.9)}<rect x="{W - 300}" y="{y - 17}" width="278" height="25" rx="12.5" fill="none" stroke="{ok}"/>'
+                f'<text x="{W - 161}" y="{y}" fill="{ink}" font-size="12.5" text-anchor="middle">benchmark reference 0.3780 kg: 3.2% off</text></g>')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
+            f'aria-label="Terminal: r2s_pipeline identifies a 0.3658 kg object from a 10 second joint-torque recording after subtracting the empty-gripper baseline.">'
+            f'<defs>{"".join(defs)}</defs><rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="10" fill="{bg}" stroke="{bd}"/>'
+            f'<path d="M0.5,34 V10.5 a10,10 0 0 1 10,-10 H{W - 10.5} a10,10 0 0 1 10,10 V34 z" fill="{bar}"/><line x1="0.5" y1="34" x2="{W - 0.5}" y2="34" stroke="{bd}"/>'
+            f'<circle cx="20" cy="17" r="5.5" fill="#f85149"/><circle cx="38" cy="17" r="5.5" fill="#d29922"/><circle cx="56" cy="17" r="5.5" fill="{ok}"/>'
+            f'<text x="{W / 2}" y="21.5" fill="{sub}" font-family="{FONT}" font-size="12.5" text-anchor="middle">10 s of joint torques in, object mass out</text>'
+            f'<g font-family="ui-monospace, SFMono-Regular, \'SF Mono\', Menlo, Consolas, \'Liberation Mono\', monospace" font-size="12" xml:space="preserve" style="white-space:pre">\n'
+            + "\n".join(body) + "\n</g></svg>\n")
+
+
 if __name__ == "__main__":
     for theme, t in THEMES.items():
         p = os.path.join(HERE, f"pipeline-{theme}.svg"); open(p, "w").write(pipeline(t)); print("wrote", os.path.relpath(p))
+    p = os.path.join(HERE, "terminal_demo.svg"); open(p, "w").write(terminal()); print("wrote", os.path.relpath(p))
