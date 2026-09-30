@@ -111,7 +111,7 @@ def _build(rec, mode, robot_file, ee_frame, fc_hz, wrench_frame, wrench_sign, to
 def identify(rec, mesh_path=None, T_so=None, mode="wrench", robot_file=None, ee_frame=None,
              mesh_scale=1.0, fc_hz=5.0, use_sdp=False, wrench_frame="auto", wrench_sign=0,
              torque_sign=+1, density_fn=None, baseline=None, verbose=True):
-    """Main entry.  rec: dict of arrays (see RECORDING_SPEC.md).  T_so: (4,4) object-mesh frame in the
+    """Main entry.  rec: dict of arrays (see recording/RECORDING_SPEC.md).  T_so: (4,4) object-mesh frame in the
     sensor/EE frame (if None, results are reported in the sensor frame only).
     baseline: a recording of the SAME setup with NO object (empty gripper / bare sensor). Its inertial
     parameters are identified the same way and subtracted -- this removes the gripper/fingers/sensor

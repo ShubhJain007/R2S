@@ -12,6 +12,7 @@ up to 529 MB each) are not included.
 | `out_wrist/` | `wrist_poses.py` | in-hand camera poses from forward kinematics |
 | `out_splat/`, `out_splat_ep/`, `out_splat_ep2/`, `out_splat_sh/` | `train_splat.py`, `eval_splat.py` | Gaussian-splat renders vs ground-truth views (`cmp_*`): workspace splat, per-episode splats, and a spherical-harmonics variant; `showcase.png` summarises the last |
 | `out_object/` | `object_segment.py`, `object_mesh.py` | segmented object and its watertight mesh `object.obj` from multi-view depth |
+| `demo/` | `render_flythrough.py`, `make_demo_media.py` | media for the top-level README: a novel-view sweep through the workspace splat (`workspace_flythrough.gif`), camera vs splat pairs, and the frame checks |
 
 ## Licence and attribution
 

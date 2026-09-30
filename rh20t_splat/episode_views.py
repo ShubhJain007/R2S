@@ -7,7 +7,7 @@ consequence of the recorded TCP -- no COLMAP, no alignment, no extra capture.
 """
 import os, sys, numpy as np, cv2
 from depth_io import read_depth_video
-sys.path.insert(0, "/home/kneepolean/shubhj/R2S/rh20t_splat")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from wrist_poses import setup, load_tcp_series, frames, wrist_extrinsics, derive_tc_mat
 
 def gripper_mask(fr, thresh=0.06):

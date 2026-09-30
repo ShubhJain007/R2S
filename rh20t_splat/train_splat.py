@@ -86,7 +86,7 @@ def main():
 
     K,E = load_calib(a.calib)
     if a.episode:
-        import sys as _s; _s.path.insert(0,"/home/kneepolean/shubhj/R2S/rh20t_splat")
+        import sys as _s; _s.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
         from episode_views import load_episode_views
         views = load_episode_views(a.episode, a.calib, a.fixed_frame, a.wrist_every)
     else:

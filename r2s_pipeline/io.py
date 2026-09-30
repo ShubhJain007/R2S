@@ -1,6 +1,6 @@
 """Recording loader and asset writers.
 
-Recording: a single .npz (see RECORDING_SPEC.md).  Required keys depend on mode:
+Recording: a single .npz (see recording/RECORDING_SPEC.md).  Required keys depend on mode:
   wrench mode:        t (N,), T_ws (N,4,4), wrench (N,6)            optional: vel (N,6), acc (N,6), gripper (N,)
   joint_torque mode:  t (N,), q (N,nj), tau (N,nj)                   optional: gripper (N,)
 Optional for both: T_so (4,4) object-mesh frame in the sensor/EE frame.
