@@ -51,7 +51,7 @@ flowchart TD
 
 | Module | Role |
 |---|---|
-| `regressor.py` | Newton–Euler regressor, parameter pack/unpack, least-squares and physically-consistent SDP fits |
+| `regressor.py` | Newton–Euler regressor (Atkeson et al., 1986), parameter pack/unpack, least-squares fit and the physically-consistent SDP fit (Wensing et al., 2018) |
 | `kinematics.py` | sensor-frame kinematics from poses; automatic wrench frame and sign detection |
 | `geometry.py` | voxel inertia from a mesh (open meshes are fine), gyration ratio, symmetry flag |
 | `identify.py` | wrench and joint-torque modes, baseline subtraction, held-out diagnostics |
@@ -88,3 +88,5 @@ The self-test reads the utiasSTARS data from the `utias-inertial` clone at the r
 |---|---|
 | self-test (utiasSTARS, wrench mode) | mass 0.06–1.8%, 5/5 objects |
 | Scalable Real2Sim spam (joint torque, nominal iiwa + baseline) | 0.366 kg against a 0.378 kg reference (3.2%) |
+
+Full references: [top-level README](../README.md#references), BibTeX in [`../docs/references.bib`](../docs/references.bib).

@@ -5,7 +5,7 @@
 **Turn joint torques (or a wrist force/torque sensor) and camera images into the mass, centre of mass,<br>
 inertia and friction of the objects a robot handled, each checked against ground truth.**
 
-[The finding](#the-finding-in-one-picture) · [How it works](#how-it-works) · [Try it](#try-it) · [Evidence](#the-evidence) · [RH20T demo](#6-real-robot-episodes-rh20t) · [Repository map](#repository-map) · [Setup](#setup)
+[The finding](#the-finding-in-one-picture) · [How it works](#how-it-works) · [Try it](#try-it) · [Evidence](#the-evidence) · [RH20T demo](#6-real-robot-episodes-rh20t) · [Repository map](#repository-map) · [Setup](#setup) · [References](#references)
 
 <img alt="Five workshop tools rotating: hammer, pliers, screwdriver, vise grip and box wrench. Each shows its true centre of mass as a ring and the estimated one as a dot, with the mass error underneath: 0.08, 1.77, 0.06, 0.14 and 0.07 percent." src="docs/figures/tools_demo.gif" width="860">
 
@@ -27,7 +27,7 @@ inertia and friction of the objects a robot handled, each checked against ground
 
 A simulator needs four numbers per object: mass, centre of mass, inertia, friction. They are usually guessed. This
 repository asks whether a robot's ordinary interaction logs can supply them instead, tests that claim against two published
-methods and ground-truth data, and ships the pipeline that came out of it: [`r2s_pipeline`](r2s_pipeline/).
+methods [[1]](#references) [[2]](#references) and ground-truth data [[3]](#references), and ships the pipeline that came out of it: [`r2s_pipeline`](r2s_pipeline/).
 
 > **Status (September 2026): research code.** Every number below is measured and traceable to a file in
 > [`results/`](results/); the day-by-day record is in the [lab notebook](docs/LAB_NOTEBOOK.md).
@@ -135,14 +135,14 @@ print(sdf_inertial_block(res))
 
 What the package does ([details](r2s_pipeline/README.md)):
 
-- two sensing modes: a wrist wrench, or joint torque through Drake with any URDF;
+- two sensing modes: a wrist wrench, or joint torque through Drake [[7]](#references) with any URDF;
 - automatic wrench-convention detection and empty-gripper baseline subtraction;
 - mass and centre of mass from motion, inertia from geometry, friction from a press-and-slide motion;
 - self-checks that need no ground truth: held-out torque error, conditioning, gyration ratio, symmetry warning;
 - JSON, SDF and URDF output.
 
 Recording your own data: [`recording/RECORDING_SPEC.md`](recording/RECORDING_SPEC.md) (any robot) and
-[`recording/MED7_RECORDING.md`](recording/MED7_RECORDING.md) (KUKA LBR Med7, joint torque sensors, no wrist F/T needed).
+[`recording/MED7_RECORDING.md`](recording/MED7_RECORDING.md) (KUKA LBR Med7 over the LBR-Stack FRI driver [[11]](#references): joint torque sensors, no wrist F/T needed).
 
 ## The evidence
 
@@ -163,7 +163,7 @@ flowchart LR
 
 ### 1. One-Shot Real-to-Sim does not identify mass from a push
 
-*RigidWorldModel, [arXiv:2412.00259](https://arxiv.org/abs/2412.00259) v4 (RA-L 2025).*
+*Zhu et al., RA-L 2025 [[1]](#references) ([arXiv:2412.00259](https://arxiv.org/abs/2412.00259) v4; code: RigidWorldModel).*
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/oneshot_seed-dark.svg">
@@ -198,7 +198,7 @@ and the data exerts almost no pull, so a better seed (from a VLM, say) moves the
 
 ### 2. Scalable Real2Sim: mass holds up, its inertia output is an artefact
 
-*[arXiv:2503.00370](https://arxiv.org/abs/2503.00370), tests T1–T5 on spam / sugar / lego.*
+*Pfaff et al., IROS 2025 [[2]](#references) ([arXiv:2503.00370](https://arxiv.org/abs/2503.00370)); tests T1–T5 on spam / sugar / lego.*
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/s2s_excitation-dark.svg">
@@ -229,7 +229,7 @@ Script and results: [`experiments/scalable_real2sim/s2s_tests.py`](experiments/s
 
 ### 3. Ground truth: 20 workshop tools
 
-*utiasSTARS dataset: CAD meshes, material assignments, and CAD-derived mass, centre of mass and inertia.*
+*The utiasSTARS workshop-tools dataset of Nadeau et al. [[3]](#references): CAD meshes, material assignments, and CAD-derived mass, centre of mass and inertia.*
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/tools_scorecard-dark.svg">
@@ -244,7 +244,8 @@ residual is where a material or part prior helps.
 <details>
 <summary><b>Details: identification from gentle motion</b></summary>
 
-Wrist-wrench Newton–Euler regressor, fit on the first 70% of each recording, evaluated on the held-out 30%:
+Wrist-wrench Newton–Euler regressor [[5]](#references), fit on the first 70% of each recording by least squares or with the
+physical-consistency constraint of Wensing et al. [[6]](#references) ("SDP"), and evaluated on the held-out 30%:
 
 | Setting | Mass median | Mass ≤ 5% | CoM median | Inertia median | Inertia ≤ 10% |
 |---|---|---|---|---|---|
@@ -298,7 +299,7 @@ Scripts and results: [`experiments/scalable_real2sim/hybrid_pipeline.py`](experi
 
 ### 5. Articulation axes from geometry
 
-*A synthetic stand-in for PartNet-Mobility: five jointed objects with exact ground-truth axes.*
+*A synthetic stand-in for PartNet-Mobility [[10]](#references): five jointed objects with exact ground-truth axes.*
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/axis_recovery-dark.svg">
@@ -314,7 +315,7 @@ Script and results: [`experiments/articulation/axis_recovery_test.py`](experimen
 
 ### 6. Real-robot episodes (RH20T)
 
-*Gaussian-splat reconstruction of an RH20T workspace from the dataset's own calibrated cameras, with no pose estimation.*
+*Gaussian-splat [[8]](#references) reconstruction of an RH20T [[4]](#references) workspace from the dataset's own calibrated cameras, with no pose estimation; trained with gsplat [[9]](#references).*
 
 <div align="center">
 <img alt="Animated novel-view sweep through the Gaussian splat of a robot workspace: a table with a calibration marker, a cardboard sheet, wooden blocks and a teach pendant." src="results/rh20t_splat/demo/workspace_flythrough.gif" width="640">
@@ -385,6 +386,38 @@ If ROS is installed, run with `PYTHONNOUSERSITE=1` and an empty `PYTHONPATH`, fo
 | RH20T (cfg5, cfg7, depth, low-dim, calibration) | 126 GB | https://rh20t.github.io |
 | RigidWorldModel Drill (`train1`) | 2 GB | link in the RigidWorldModel README |
 | utiasSTARS workshop tools | 85 MB | included in the `utias-inertial` upstream repository |
+
+## References
+
+This work builds on the code and data released with [1]–[4], and on Drake [7], gsplat [9], LBR-Stack [11] and Warp [12].
+BibTeX for every entry is in [`docs/references.bib`](docs/references.bib).
+
+1. Y. Zhu, T. Xiang, A. M. Dollar and Z. Pan, "One-Shot Real-to-Sim via End-to-End Differentiable Simulation and Rendering," *IEEE Robotics and Automation Letters*, vol. 10, no. 6, pp. 6320–6327, 2025. [doi:10.1109/LRA.2025.3566623](https://doi.org/10.1109/LRA.2025.3566623) · [arXiv:2412.00259](https://arxiv.org/abs/2412.00259)
+2. N. Pfaff, E. Fu, J. Binagia, P. Isola and R. Tedrake, "Scalable Real2Sim: Physics-Aware Asset Generation Via Robotic Pick-and-Place Setups," in *IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*, 2025, pp. 6296–6303. [doi:10.1109/IROS60139.2025.11246653](https://doi.org/10.1109/IROS60139.2025.11246653) · [arXiv:2503.00370](https://arxiv.org/abs/2503.00370)
+3. P. Nadeau, M. Giamou and J. Kelly, "The Sum of Its Parts: Visual Part Segmentation for Inertial Parameter Identification of Manipulated Objects," in *IEEE International Conference on Robotics and Automation (ICRA)*, 2023, pp. 3779–3785. [doi:10.1109/ICRA48891.2023.10160394](https://doi.org/10.1109/ICRA48891.2023.10160394)
+4. H.-S. Fang, H. Fang, Z. Tang, J. Liu, C. Wang, J. Wang, H. Zhu and C. Lu, "RH20T: A Comprehensive Robotic Dataset for Learning Diverse Skills in One-Shot," in *IEEE International Conference on Robotics and Automation (ICRA)*, 2024, pp. 653–660. [doi:10.1109/ICRA57147.2024.10611615](https://doi.org/10.1109/ICRA57147.2024.10611615) · [arXiv:2307.00595](https://arxiv.org/abs/2307.00595)
+5. C. G. Atkeson, C. H. An and J. M. Hollerbach, "Estimation of Inertial Parameters of Manipulator Loads and Links," *The International Journal of Robotics Research*, vol. 5, no. 3, pp. 101–119, 1986. [doi:10.1177/027836498600500306](https://doi.org/10.1177/027836498600500306)
+6. P. M. Wensing, S. Kim and J.-J. E. Slotine, "Linear Matrix Inequalities for Physically Consistent Inertial Parameter Identification: A Statistical Perspective on the Mass Distribution," *IEEE Robotics and Automation Letters*, vol. 3, no. 1, pp. 60–67, 2018. [doi:10.1109/LRA.2017.2729659](https://doi.org/10.1109/LRA.2017.2729659)
+7. R. Tedrake and the Drake Development Team, "Drake: Model-based design and verification for robotics," 2019. https://drake.mit.edu
+8. B. Kerbl, G. Kopanas, T. Leimkühler and G. Drettakis, "3D Gaussian Splatting for Real-Time Radiance Field Rendering," *ACM Transactions on Graphics*, vol. 42, no. 4, 2023. [doi:10.1145/3592433](https://doi.org/10.1145/3592433)
+9. V. Ye, R. Li, J. Kerr, M. Turkulainen, B. Yi, Z. Pan, O. Seiskari, J. Ye, J. Hu, M. Tancik and A. Kanazawa, "gsplat: An Open-Source Library for Gaussian Splatting," *Journal of Machine Learning Research*, vol. 26, no. 34, pp. 1–17, 2025. [jmlr.org/papers/v26/24-1476.html](http://www.jmlr.org/papers/v26/24-1476.html)
+10. F. Xiang, Y. Qin, K. Mo, Y. Xia, H. Zhu, F. Liu, M. Liu, H. Jiang, Y. Yuan, H. Wang, L. Yi, A. X. Chang, L. J. Guibas and H. Su, "SAPIEN: A SimulAted Part-Based Interactive ENvironment," in *IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2020, pp. 11094–11104. [doi:10.1109/CVPR42600.2020.01111](https://doi.org/10.1109/CVPR42600.2020.01111) (introduces the PartNet-Mobility dataset)
+11. M. Huber, C. E. Mower, S. Ourselin, T. Vercauteren and C. Bergeles, "LBR-Stack: ROS 2 and Python Integration of KUKA FRI for Med and IIWA Robots," *Journal of Open Source Software*, vol. 9, no. 103, 6138, 2024. [doi:10.21105/joss.06138](https://doi.org/10.21105/joss.06138)
+12. M. Macklin, "Warp: A High-performance Python Framework for GPU Simulation and Graphics," NVIDIA GPU Technology Conference (GTC), 2022. https://github.com/NVIDIA/warp
+
+## Citing this repository
+
+If you use this code or these results, please cite the repository (metadata in [`CITATION.cff`](CITATION.cff)) and the
+upstream work your use depends on:
+
+```bibtex
+@misc{jain2026r2s,
+  author       = {Jain, Shubh},
+  title        = {{R2S}: Real-to-Sim Physics from a Robot's Own Logs},
+  year         = {2026},
+  howpublished = {\url{https://github.com/ShubhJain007/R2S}}
+}
+```
 
 ## Licence
 

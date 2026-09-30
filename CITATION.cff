@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite this repository and the upstream work it builds on (see the README's References section)."
+title: "R2S: Real-to-Sim Physics from a Robot's Own Logs"
+type: software
+authors:
+  - family-names: Jain
+    given-names: Shubh
+repository-code: "https://github.com/ShubhJain007/R2S"
+url: "https://github.com/ShubhJain007/R2S"
+date-released: "2026-09-29"
+keywords:
+  - real-to-sim
+  - inertial parameter identification
+  - robot manipulation
+  - Gaussian splatting
