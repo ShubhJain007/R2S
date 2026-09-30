@@ -14,9 +14,9 @@ Mapping:
 Only samples where the jaws are stopped on an object are used.
 """
 import os, sys, numpy as np
-sys.path.insert(0,"/home/kneepolean/shubhj/R2S")
-sys.path.insert(0,"/home/kneepolean/shubhj/R2S/rh20t_splat")
-sys.path.insert(0,"/home/kneepolean/shubhj/R2S/rh20t_api")
+sys.path.insert(0,os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0,os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rh20t_api"))
 from rh20t_api.transforms import pose_array_quat_2_matrix
 import importlib
 ID = importlib.import_module("r2s_pipeline.identify")   # __init__ rebinds the name to a function

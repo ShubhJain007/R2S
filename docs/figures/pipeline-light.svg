@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 924 438" width="924" height="438" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" role="img" aria-label="Pipeline: mass and centre of mass come from the force channel, inertia from geometry, friction from a press-and-slide motion."><style>.h{font-size:14px;font-weight:600;fill:#1f2328}.s{font-size:12px;fill:#59636e}.n{font-size:11.5px;fill:#59636e}.c{font-size:11px;font-weight:600;letter-spacing:.08em;fill:#818b98}</style><defs><marker id="a-2a78d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2a78d6"/></marker><marker id="a-eb6834" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#eb6834"/></marker><marker id="a-1baf7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1baf7a"/></marker><marker id="a-818b98" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#818b98"/></marker></defs>
+<text x="20" y="30" class="c">RECORD</text><text x="300" y="30" class="c">ESTIMATE</text><text x="620" y="30" class="c">PARAMETERS</text><text x="800" y="30" class="c">USE</text>
+<rect x="20" y="50" width="220" height="96" rx="8" fill="#f6f8fa" stroke="#c4cbd3"/>
+<rect x="20" y="60" width="4" height="76" rx="2" fill="#2a78d6"/>
+<text x="38" y="77" class="h">Force channel</text>
+<text x="38" y="97" class="s">joint torques + joint angles,</text>
+<text x="38" y="114" class="s">or a wrist F/T wrench</text>
+<text x="38" y="131" class="s">+ one empty-gripper baseline</text>
+<rect x="20" y="236" width="220" height="80" rx="8" fill="#f6f8fa" stroke="#c4cbd3"/>
+<rect x="20" y="246" width="4" height="60" rx="2" fill="#eb6834"/>
+<text x="38" y="263" class="h">Cameras</text>
+<text x="38" y="283" class="s">calibrated RGB-D views</text>
+<text x="38" y="300" class="s">&#8594; object mesh</text>
+<rect x="300" y="50" width="260" height="96" rx="8" fill="#f6f8fa" stroke="#c4cbd3"/>
+<rect x="300" y="60" width="4" height="76" rx="2" fill="#2a78d6"/>
+<text x="318" y="77" class="h">Newton&#8211;Euler fit</text>
+<text x="318" y="97" class="s">baseline subtracted, arm model removed</text>
+<text x="318" y="114" class="s">least squares or physically-consistent SDP</text>
+<text x="318" y="131" class="s">any motion: gravity carries the signal</text>
+<rect x="300" y="236" width="260" height="80" rx="8" fill="#f6f8fa" stroke="#c4cbd3"/>
+<rect x="300" y="246" width="4" height="60" rx="2" fill="#eb6834"/>
+<text x="318" y="263" class="h">Geometry</text>
+<text x="318" y="283" class="s">voxelise the mesh (open meshes are fine)</text>
+<text x="318" y="300" class="s">uniform density, scaled to the mass</text>
+<rect x="300" y="356" width="260" height="62" rx="8" fill="#f6f8fa" stroke="#c4cbd3"/>
+<rect x="300" y="366" width="4" height="42" rx="2" fill="#1baf7a"/>
+<text x="318" y="383" class="h">Press and slide</text>
+<text x="318" y="403" class="s">&#956; = |F tangential| / |F normal|</text>
+<rect x="620" y="50" width="140" height="46" rx="23" fill="none" stroke="#2a78d6" stroke-width="1.5"/><text x="690.0" y="70" class="h" text-anchor="middle">mass</text><text x="690.0" y="86" class="n" text-anchor="middle">0.2&#8211;1% error</text>
+<rect x="620" y="104" width="140" height="46" rx="23" fill="none" stroke="#2a78d6" stroke-width="1.5"/><text x="690.0" y="124" class="h" text-anchor="middle">centre of mass</text><text x="690.0" y="140" class="n" text-anchor="middle">&#8776; 1 cm</text>
+<rect x="620" y="253" width="140" height="46" rx="23" fill="none" stroke="#eb6834" stroke-width="1.5"/><text x="690.0" y="273" class="h" text-anchor="middle">inertia tensor</text><text x="690.0" y="289" class="n" text-anchor="middle">4.4% median error</text>
+<rect x="620" y="364" width="140" height="46" rx="23" fill="none" stroke="#1baf7a" stroke-width="1.5"/><text x="690.0" y="384" class="h" text-anchor="middle">contact friction</text><text x="690.0" y="400" class="n" text-anchor="middle">per material pair</text>
+<rect x="800" y="50" width="104" height="368" rx="8" fill="#f6f8fa" stroke="#c4cbd3"/><text x="852" y="80" class="h" text-anchor="middle">Simulator</text><text x="852" y="104" class="s" text-anchor="middle">SDF</text><text x="852" y="122" class="s" text-anchor="middle">URDF</text><text x="852" y="140" class="s" text-anchor="middle">JSON</text><line x1="816" y1="176" x2="888" y2="176" stroke="#c4cbd3"/><text x="852" y="202" class="h" text-anchor="middle">Self-checks</text><text x="852" y="226" class="s" text-anchor="middle">held-out error</text><text x="852" y="244" class="s" text-anchor="middle">conditioning</text><text x="852" y="262" class="s" text-anchor="middle">gyration ratio</text><text x="852" y="280" class="s" text-anchor="middle">symmetry flag</text><text x="852" y="298" class="s" text-anchor="middle">static mass</text>
+<path d="M240,98 L298,98" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-2a78d6)"/>
+<path d="M560,80 L618,74" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-2a78d6)"/>
+<path d="M560,116 L618,126" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-2a78d6)"/>
+<path d="M240,276 L298,276" fill="none" stroke="#eb6834" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-eb6834)"/>
+<path d="M560,276 L618,276" fill="none" stroke="#eb6834" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-eb6834)"/>
+<path d="M130,146 L130,190 L270,190 L270,387 L298,387" fill="none" stroke="#1baf7a" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-1baf7a)"/>
+<path d="M560,387 L618,387" fill="none" stroke="#1baf7a" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-1baf7a)"/>
+<path d="M760,74 L798,74" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-2a78d6)"/>
+<path d="M760,127 L798,127" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-2a78d6)"/>
+<path d="M760,276 L798,276" fill="none" stroke="#eb6834" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-eb6834)"/>
+<path d="M760,387 L798,387" fill="none" stroke="#1baf7a" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-1baf7a)"/>
+<path d="M430,146 L430,234" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round"  marker-end="url(#a-2a78d6)"/>
+<text x="440" y="176" class="n">mass</text>
+<path d="M520,146 L520,200 L716,200 L716,251" fill="none" stroke="#818b98" stroke-width="2" stroke-linejoin="round" stroke-dasharray='5 5' marker-end="url(#a-818b98)"/>
+<circle cx="618" cy="200" r="10" fill="#f6f8fa" stroke="#d03b3b" stroke-width="1.5"/><path d="M613,195 L623,205 M623,195 L613,205" stroke="#d03b3b" stroke-width="2" stroke-linecap="round"/><text x="704" y="226" class="n" text-anchor="end">inertia from motion: 300&#8211;800% error, not used</text>
+</svg>

@@ -8,7 +8,7 @@
      -- an arm-agnostic selector: no labels, no prompts, just "what did the gripper take?"
 """
 import os, sys, numpy as np, cv2, open3d as o3d
-sys.path.insert(0, "/home/kneepolean/shubhj/R2S/rh20t_splat"); sys.path.insert(0, "/home/kneepolean/shubhj/R2S/rh20t_api")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rh20t_api"))
 from wrist_poses import setup, load_tcp_series
 from depth_io import read_depth_video
 from rh20t_api.transforms import pose_array_quat_2_matrix

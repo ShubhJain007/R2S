@@ -7,7 +7,7 @@ holdout views should score well while distant fixed holdout views stay poor.  Th
 distinction matters: a twin for manipulation needs the tabletop right, not the walls.
 """
 import os, sys, numpy as np, torch, cv2
-sys.path.insert(0,"/home/kneepolean/shubhj/R2S/rh20t_splat")
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from gsplat import rasterization
 from train_splat import load_calib, psnr
 from episode_views import load_episode_views

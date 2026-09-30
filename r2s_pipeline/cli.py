@@ -5,7 +5,7 @@
   python -m r2s_pipeline selftest                     # no hardware: runs on the utiasSTARS Hammer with known truth
   python -m r2s_pipeline convert-utias OBJECT OUT.npz  # turn a utias .pkl into a recording (example data)
 """
-import argparse, json, sys
+import argparse, json, os, sys
 import numpy as np
 from . import io as IO
 from .identify import identify
@@ -42,7 +42,7 @@ def utias_to_recording(obj):
         def find_class(self, mod, name):
             try: return super().find_class(mod, name)
             except Exception: return Dummy
-    D = "/home/kneepolean/shubhj/R2S/utias-inertial/data"
+    D = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "utias-inertial", "data")   # clone: see third_party/UPSTREAM.md
     d = U(open(f"{D}/Simulations/{obj}.pkl", "rb")).load()
     A = lambda v: np.asarray(v.A if hasattr(v, "A") else v).reshape(-1)
     rec = dict(t=np.array([s.timestamp for s in d], float),

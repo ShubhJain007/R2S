@@ -11,11 +11,11 @@ fixed cameras.  Verification is the same trick as everywhere else in this projec
 project the marker (world origin) into the frame and look at where it lands.
 """
 import os, sys, json, numpy as np, cv2
-sys.path.insert(0, "/home/kneepolean/shubhj/R2S/rh20t_api")
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rh20t_api"))
 from rh20t_api.configurations import load_conf, tcp_as_q
 from rh20t_api.transforms import calc_base_world_mat, pose_array_quat_2_matrix
 
-CFG = "/home/kneepolean/shubhj/R2S/rh20t_api/configs/configs.json"
+CFG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rh20t_api", "configs", "configs.json")
 
 def setup(calib_dir, conf_num=7):
     conf = [c for c in load_conf(CFG) if c.conf_num == conf_num][0]

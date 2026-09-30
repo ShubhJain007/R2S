@@ -14,7 +14,7 @@ the step real2sim-eval does by hand in SuperSplat.
 """
 import os, sys, json
 import numpy as np, cv2
-sys.path.insert(0, "/home/kneepolean/shubhj/R2S/rh20t_api")
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rh20t_api"))
 from rh20t_api.configurations import load_conf
 from rh20t_api.transforms import (calc_base_world_mat, pose_array_quat_2_matrix)
 
@@ -36,7 +36,7 @@ def draw_frame(img, K, T_cam_X, label, L=0.15):
 if __name__ == "__main__":
     calib_dir, out = sys.argv[1], sys.argv[2]
     os.makedirs(out, exist_ok=True)
-    conf = [c for c in load_conf("/home/kneepolean/shubhj/R2S/rh20t_api/configs/configs.json")
+    conf = [c for c in load_conf(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rh20t_api", "configs", "configs.json"))
             if c.conf_num == 7][0]
     I = np.load(os.path.join(calib_dir,"intrinsics.npy"), allow_pickle=True).item()
     E = np.load(os.path.join(calib_dir,"extrinsics.npy"), allow_pickle=True).item()

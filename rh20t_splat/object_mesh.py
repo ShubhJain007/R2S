@@ -10,7 +10,7 @@ Fusion on a voxel grid around the seed cluster:
   never-observed, never-carved voxels stay solid -> the unseen bottom closes on the table plane.
 """
 import os, sys, numpy as np, cv2
-sys.path.insert(0, "/home/kneepolean/shubhj/R2S/rh20t_splat"); sys.path.insert(0, "/home/kneepolean/shubhj/R2S/rh20t_api")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rh20t_api"))
 from wrist_poses import setup, load_tcp_series, wrist_extrinsics, derive_tc_mat, frames as color_frames
 from depth_io import read_depth_video
 from object_segment import static_depth

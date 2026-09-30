@@ -8,8 +8,8 @@ frames from an actual episode.  If the TCP tracks the gripper as the arm moves,
 the calibration still holds for this episode.
 """
 import os, sys, numpy as np, cv2
-sys.path.insert(0,"/home/kneepolean/shubhj/R2S/rh20t_splat")
-sys.path.insert(0,"/home/kneepolean/shubhj/R2S/rh20t_api")
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0,os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rh20t_api"))
 from wrist_poses import setup, load_tcp_series, frames
 from rh20t_api.transforms import pose_array_quat_2_matrix
 
