@@ -1,0 +1,97 @@
+[
+ {
+  "obj": "Hammer",
+  "mesh": "utias-inertial/data/Workshop Tools Dataset/Hammer/mesh.ply",
+  "mass": 0.6902553125512306,
+  "mass_gt": 0.6897,
+  "com": [
+   -0.001591980266862951,
+   -0.052045802570092864,
+   -0.007326162337182281
+  ],
+  "com_gt": [
+   0.0,
+   -0.04372,
+   -0.00094
+  ],
+  "mass_err": 0.08051508644782467,
+  "com_err_mm": 10.613032507398222,
+  "inertia_err": 14.413574788870035
+ },
+ {
+  "obj": "Pliers",
+  "mesh": "utias-inertial/data/Workshop Tools Dataset/Pliers/mesh.ply",
+  "mass": 0.6219558199778761,
+  "mass_gt": 0.63318,
+  "com": [
+   0.1654453209219453,
+   0.18933001074845732,
+   0.13349994656385114
+  ],
+  "com_gt": [
+   0.16083,
+   0.14115,
+   0.15753
+  ],
+  "mass_err": 1.7726681231441117,
+  "com_err_mm": 54.037561853567915,
+  "inertia_err": 5.069854213762845
+ },
+ {
+  "obj": "Screwdriver",
+  "mesh": "utias-inertial/data/Workshop Tools Dataset/Screwdriver/mesh.ply",
+  "mass": 0.030412769945834847,
+  "mass_gt": 0.03043,
+  "com": [
+   -0.0004079861073996871,
+   -0.0004112239827510401,
+   0.07131586912638971
+  ],
+  "com_gt": [
+   0.0,
+   0.0,
+   0.07594
+  ],
+  "mass_err": 0.056621932846373825,
+  "com_err_mm": 4.660272970985348,
+  "inertia_err": 39.534162572418126
+ },
+ {
+  "obj": "Vise_Grip",
+  "mesh": "utias-inertial/data/Workshop Tools Dataset/Vise Grip/mesh.ply",
+  "mass": 0.3879616060092498,
+  "mass_gt": 0.38742,
+  "com": [
+   0.02823701147312482,
+   0.010485606140812178,
+   0.08226578639209042
+  ],
+  "com_gt": [
+   -0.0037,
+   0.0,
+   0.04366
+  ],
+  "mass_err": 0.13979815426405334,
+  "com_err_mm": 51.18913342621126,
+  "inertia_err": 4.470879321432273
+ },
+ {
+  "obj": "Box_Wrench",
+  "mesh": "utias-inertial/data/Workshop Tools Dataset/Box Wrench/mesh.ply",
+  "mass": 0.20624727479495705,
+  "mass_gt": 0.2063895,
+  "com": [
+   0.0889627416603651,
+   0.019729839254953845,
+   0.000739958682070054
+  ],
+  "com_gt": [
+   0.0889357,
+   0.0202443,
+   0.0005694
+  ],
+  "mass_err": 0.06891106623299667,
+  "com_err_mm": 0.5426705940238692,
+  "inertia_err": 3.1458192194991685
+ }
+]
